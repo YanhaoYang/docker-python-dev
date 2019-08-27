@@ -1,0 +1,44 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+
+Plugin 'scrooloose/nerdtree'
+Plugin 'Yggdroot/indentLine'
+
+Plugin 'tpope/vim-surround'
+Plugin 'AutoClose'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-easymotion'
+
+Plugin 'ervandew/supertab'
+Plugin 'garbas/vim-snipmate'
+Plugin 'YanhaoYang/snipmate-snippets'
+
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'greyblake/vim-preview'
+Plugin 'godlygeek/tabular'
+
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plugin 'junegunn/fzf.vim'
+
+Plugin 'python-mode/python-mode'
+
+Plugin 'elzr/vim-json'
+
+Plugin 'YanhaoYang/seoul256.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required

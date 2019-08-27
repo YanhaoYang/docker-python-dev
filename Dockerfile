@@ -54,13 +54,13 @@ ENV SHELL=/usr/bin/zsh
 
 USER docker
 
+COPY --chown=docker:docker vim /home/docker/.vim
+
 RUN \
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
-   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
-   git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
-  git clone https://github.com/YanhaoYang/vim-for-python.git ~/.vim && \
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
-  cd ~ && ln -s .vim/vimrc .vimrc && vim +BundleInstall +qa &&\
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && \
+  git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions && \
+  cd ~/.vim && ./setup.sh && \
   git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && \
   ~/.fzf/install --all
 
