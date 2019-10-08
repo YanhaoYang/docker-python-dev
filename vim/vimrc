@@ -6,7 +6,6 @@ let g:pymode_folding = 0
 let g:pymode_python = 'python3'
 let g:pymode_lint_ignore = ["W191"]
 let g:pymode_options_max_line_length=120
-autocmd FileType python :set noexpandtab
 
 set encoding=utf-8
 set t_Co=256
@@ -114,8 +113,8 @@ map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 map <leader>e :NERDTree<CR>
 nmap <leader>nt :NERDTreeFind<CR>
 
-nmap <leader>b :Gblame<CR>
-nmap <leader>f :Buffers<CR>
+nmap <leader>b :Buffers<CR>
+nmap <leader>f :Files<CR>
 nmap <leader>m :Marks<CR>
 
 let NERDTreeShowBookmarks=1
@@ -184,10 +183,10 @@ let g:rubycomplete_rails = 1
 "set clipboard+=unnamed
 
 set autoindent                  " indent at the same level of the previous line
-set shiftwidth=2                " use indents of 4 spaces
-set noexpandtab                   " tabs are spaces, not tabs
-set tabstop=2                   " an indentation every four columns
-set softtabstop=2               " let backspace delete indent
+set shiftwidth=4                " use indents of 4 spaces
+set expandtab                   " tabs are spaces, not tabs
+set tabstop=4                   " an indentation every four columns
+set softtabstop=4               " let backspace delete indent
 set pastetoggle=<F8>       " pastetoggle (sane indentation on pastes)
 
 au BufNewFile,BufRead Gemfile*			set filetype=ruby
@@ -233,10 +232,12 @@ endif
     "\ set autoindent
     "\ set fileformat=unix
 
-nnoremap gr :grep <cword> *<CR>
+nnoremap gw :Ag <C-R><C-W><CR>
+nnoremap gr :grep <cword> --ignore-dir public<CR>
 nnoremap Gr :grep <cword> %:p:h/*<CR>
-nnoremap gR :grep '\b<cword>\b' *<CR>
+nnoremap gR :grep '\b<cword>\b'<CR>
 nnoremap GR :grep '\b<cword>\b' %:p:h/*<CR>
+nnoremap gs :%s/\<<C-r><C-w>\>/
 
 nnoremap gb :Gblame<CR>
 nnoremap gl :%!xmllint --format -<CR>
