@@ -6,6 +6,7 @@ let g:pymode_folding = 0
 let g:pymode_python = 'python3'
 let g:pymode_lint_ignore = ["W191"]
 let g:pymode_options_max_line_length=120
+let g:pymode_breakpoint_bind = '' " default: <leader>b
 
 set encoding=utf-8
 set t_Co=256
@@ -220,17 +221,6 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
-
-" Python
-"
-"au BufNewFile,BufRead *.py
-    "\ set tabstop=4
-    "\ set softtabstop=4
-    "\ set shiftwidth=4
-    "\ set textwidth=79
-    "\ set expandtab
-    "\ set autoindent
-    "\ set fileformat=unix
 
 nnoremap gw :Ag <C-R><C-W><CR>
 nnoremap gr :grep <cword> --ignore-dir public<CR>
